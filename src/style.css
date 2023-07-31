@@ -1,0 +1,98 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+html {
+    background-color: #151516;
+    color: white;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+p, button, input {
+    font-size: 1.3rem;
+}
+
+.input-wrapper {
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 10px;
+}
+
+.input-wrapper > input {
+    max-width: 500px;
+    height: 2rem;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+.input-wrapper > button {
+    max-width: 500px;
+    height: 2rem;
+}
+
+#add {
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1);
+}
+
+@media (hover: hover) {
+    #add:hover {
+        transform: scale(1.03);
+    }
+.bin-image:hover, 
+.bin-image:focus {
+  transform: scale(1.5);
+}
+}
+
+.todo-wrapper {
+    width: 100%;
+    margin: 20px;
+    margin-top: -40px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.items {
+    margin: 20px;
+    margin-top: -40px;
+    margin-left: -42px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.items > input {
+ margin-right: 10px; 
+ width: 1.5rem;
+ height: 1.5rem;
+}
+
+.items > button {
+    border-radius: 20%;
+    margin-left: 20px;
+    width: 3rem;
+    height: 1.9rem;
+    background-color: transparent;
+}
+
+.bin-image {
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1);
+    border-radius: 20%;
+    margin-left: -8px;
+    margin-top: -3px;
+    background-color: white;
+    width: 3rem;
+    height: 2rem;
+}
