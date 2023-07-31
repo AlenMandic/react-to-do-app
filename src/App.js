@@ -37,9 +37,6 @@ function MainInput() {
       setItems(JSON.parse(localStorage.getItem('localState')))
       setInputValue('')
     }
-    setTimeout(() => {
-    e.target.blur()
-    }, 100)
   }
 
   function handleInput(e) {
