@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { TodoItem } from './TodoItem';
+import { UserInput } from './UserInput';
 
 function MainInput() {
   
@@ -13,7 +14,7 @@ function MainInput() {
   })
 
   function handleCheckBoxState(itemId, isChecked) {
-    setCheckboxState(isChecked);
+    setCheckboxState(checkboxState);
     const existingData = JSON.parse(localStorage.getItem('localState')) || [];
     const indexToUpdate = existingData.findIndex((item) => item.id === itemId);
 
@@ -24,7 +25,7 @@ function MainInput() {
     }
   }
 
-  function handleAdd(e) {
+  function handleAdd() {
     if (inputValue === '') {
       return
     } else {
@@ -49,15 +50,9 @@ function MainInput() {
   }
 
   return (
-    <>
       <div className="input-wrapper">
-        <h1>Your task list</h1>
-        <h2>New Task</h2>
-        <input type="text" id="main-text" placeholder="Add item" value={inputValue} onChange={handleInput}></input>
-        <button onClick={handleAdd} id="add">Add</button>
+      <UserInput inputValue={inputValue} handleInput={handleInput} handleAdd={handleAdd} />
 
-        <h2 style={{ marginTop: '40px' }}>Current tasks: </h2>
-        <div className="input-wrapper"></div>
         <div className="todo-wrapper">
           {
             items.map((item, index) => (
@@ -72,7 +67,6 @@ function MainInput() {
           }
         </div>
       </div>
-    </>
   )
 }
 
