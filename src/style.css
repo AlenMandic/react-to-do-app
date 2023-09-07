@@ -1,127 +1,136 @@
-*, *::before, *::after {
-    box-sizing: border-box;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 html {
-    background-color: #151516;
-    color: white;
+  background-color: #151516;
+  color: white;
 }
 
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-p, button, input {
-    font-size: 1.3rem;
+p,
+button,
+input {
+  font-size: 1.3rem;
 }
 
 .input-wrapper {
-    min-width: 500px;
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-    padding: 10px;
+  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  padding: 10px;
 }
 
 .input-wrapper > input {
-    max-width: 500px;
-    height: 2rem;
-    margin-bottom: 15px;
-    padding: 5px;
+  max-width: 500px;
+  height: 2rem;
+  margin-bottom: 15px;
+  padding: 5px;
 }
 
 .input-wrapper > button {
-    max-width: 500px;
-    height: 2rem;
+  max-width: 500px;
+  height: 2rem;
 }
 
 #add {
-    transition: transform 0.2s ease-in-out;
-    transform: scale(1);
+  transition: transform 0.2s ease-in-out;
+  transform: scale(1);
 }
 
 @media (hover: hover) {
-    #add:hover {
-        transform: scale(1.03);
-    }
-.bin-image:hover, 
-.bin-image:focus {
-  transform: scale(1.5);
-}
+  #add:hover {
+    transform: scale(1.03);
+  }
+  .bin-image:hover,
+  .bin-image:focus {
+    transform: scale(1.5);
+  }
 }
 
 .todo-wrapper {
-    width: 100%;
-    margin: 20px;
-    margin-top: -40px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+  width: 100%;
+  margin: 20px;
+  margin-top: -40px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .items {
-    margin: 20px;
-    margin-top: -40px;
-    margin-left: -42px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+  margin: 20px;
+  margin-top: -40px;
+  margin-left: -42px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .items > input {
- margin-right: 10px; 
- width: 1.5rem;
- height: 1.5rem;
+  margin-right: 10px;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+input[type='checkbox'] {
+  min-width: 28px;
+  min-height: 28px;
 }
 
 .items > button {
-    border-radius: 20%;
-    margin-left: 20px;
-    width: 3rem;
-    height: 1.9rem;
-    background-color: transparent;
+  border-radius: 20%;
+  margin-left: 20px;
+  width: 2rem;
+  height: 1.9rem;
+  background-color: #151516;
 }
 
 .bin-image {
-    transition: transform 0.2s ease-in-out;
-    transform: scale(1);
-    border-radius: 20%;
-    margin-left: -8px;
-    margin-top: -3px;
-    background-color: white;
-    width: 3rem;
-    height: 2rem;
+  transition: transform 0.2s ease-in-out;
+  transform: scale(1);
+  border-radius: 20%;
+  margin-left: -8px;
+  margin-top: -4px;
+  background-color: white;
+  width: 3rem;
+  height: 2rem;
 }
 
 @media only screen and (max-width: 420px) {
+  h1 {
+    font-size: 3rem;
+  }
 
-    h1 {
-        font-size: 3rem;
-    }
+  h2 {
+    font-size: 2.7rem;
+  }
 
-    h2 {
-        font-size: 2.7rem;
-    }
+  p,
+  button,
+  input {
+    font-size: 2rem;
+  }
 
-    p, button, input {
-        font-size: 2rem;
-    }
+  .input-wrapper > input {
+    height: 3rem;
+  }
 
-    .input-wrapper > input {
-        height: 3rem;
-    }
-    
-    .input-wrapper > button {
-        height: 3rem;
-    }
+  .input-wrapper > button {
+    height: 3rem;
+  }
 
-    .bin-image {
-        width: 3.4rem;
-        height: 2.3rem;
-    }
-
+  .bin-image {
+    width: 3.4rem;
+    height: 2.3rem;
+  }
 }
