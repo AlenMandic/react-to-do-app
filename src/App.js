@@ -5,7 +5,6 @@ import { UserInput } from './UserInput';
 function MainInput() {
   
   // this will use data which we will pass in from our TodoItem component.
-  const [checkboxState, setCheckboxState] = useState(false);
   const [inputValue, setInputValue] = useState('')
   const [items, setItems] = useState(() => {
 
@@ -14,7 +13,6 @@ function MainInput() {
   })
 
   function handleCheckBoxState(itemId, isChecked) {
-    setCheckboxState(checkboxState);
     const existingData = JSON.parse(localStorage.getItem('localState')) || [];
     const indexToUpdate = existingData.findIndex((item) => item.id === itemId);
 
@@ -45,7 +43,9 @@ function MainInput() {
   }
 
   function deleteCallback(index) {
-    localStorage.setItem('localState', JSON.stringify([...items].filter((item, i) => i !== index)))
+    const updatedItems = JSON.parse(localStorage.getItem('localState'));
+
+    localStorage.setItem('localState', JSON.stringify([...updatedItems].filter((item, i) => i !== index)))
     setItems(JSON.parse(localStorage.getItem('localState')))
   }
 
