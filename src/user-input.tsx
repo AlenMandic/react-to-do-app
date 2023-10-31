@@ -1,4 +1,12 @@
-export function UserInput({ inputValue, handleInput, handleAdd }) {
+import React from 'react'
+
+interface UserInputProps {
+    inputValue: string,
+    handleInput: (event: React.ChangeEvent<HTMLInputElement>) => void,
+    handleAdd: () => void,
+}
+
+export function UserInput({ inputValue, handleInput, handleAdd }:UserInputProps) {
 
     return(
 

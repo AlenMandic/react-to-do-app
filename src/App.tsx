@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import { TodoItem } from './TodoItem';
-import { UserInput } from './UserInput';
+import { TodoItem } from './todo-item';
+import { UserInput } from './user-input';
+import './style.css';
+
+type localStorageStructure = { checked: boolean; id: string; name: string };
 
 function MainInput() {
   
@@ -8,12 +11,12 @@ function MainInput() {
   const [inputValue, setInputValue] = useState('')
   const [items, setItems] = useState(() => {
 
-    const localState = JSON.parse(localStorage.getItem('localState'));
+    const localState = JSON.parse(localStorage.getItem('localState') || 'null') as localStorageStructure[];
     return localState ? localState : []
   })
 
-  function handleCheckBoxState(itemId, isChecked) {
-    const existingData = JSON.parse(localStorage.getItem('localState')) || [];
+  function handleCheckBoxState(itemId:string, isChecked:boolean) {
+    const existingData = JSON.parse(localStorage.getItem('localState') || 'null') as localStorageStructure[] || [];
     const indexToUpdate = existingData.findIndex((item) => item.id === itemId);
 
     if (indexToUpdate !== -1) {
@@ -33,20 +36,20 @@ function MainInput() {
 
       localStorage.setItem('localState', JSON.stringify([...items, { name: inputValue, checked: false, id: uniqueId }]))
 
-      setItems(JSON.parse(localStorage.getItem('localState')))
+      setItems(JSON.parse(localStorage.getItem('localState') || 'null') as localStorageStructure[])
       setInputValue('')
     }
   }
 
-  function handleInput(e) {
-    setInputValue(e.target.value)
+  function handleInput(e:React.SyntheticEvent) {
+    setInputValue((e.target as HTMLInputElement).value)
   }
 
-  function deleteCallback(index) {
-    const updatedItems = JSON.parse(localStorage.getItem('localState'));
+  function deleteCallback(index: number) {
+    const updatedItems = JSON.parse(localStorage.getItem('localState') || 'null') as localStorageStructure[];
 
     localStorage.setItem('localState', JSON.stringify([...updatedItems].filter((item, i) => i !== index)))
-    setItems(JSON.parse(localStorage.getItem('localState')))
+    setItems(JSON.parse(localStorage.getItem('localState') || 'null') as localStorageStructure[])
   }
 
   return (
@@ -59,7 +62,7 @@ function MainInput() {
               <TodoItem
                 content={item.name}
                 key={index}
-                index={index}
+                index={Number(index)}
                 onDelete={deleteCallback}
                 onCheckboxChangeCallback={(isChecked) => handleCheckBoxState(item.id, isChecked)}
               />
